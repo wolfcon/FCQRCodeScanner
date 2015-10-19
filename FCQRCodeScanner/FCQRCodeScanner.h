@@ -18,9 +18,7 @@
  */
 - (void)getQRCodeWithString:(NSString *)aString;
 
-/**
- *  关闭二维码扫描界面的委托函数
- */
+/** 关闭二维码扫描界面的委托函数 */
 - (void)close;
 
 /**
@@ -44,50 +42,33 @@
 @interface FCQRCodeScanner : UIViewController<AVCaptureMetadataOutputObjectsDelegate>{
 }
 
-/**
- *  扫描委托
- *  delegate
- */
+/** 扫描委托 delegate */
 @property (nonatomic, assign) id <FCQRCodeScannerDelegate> delegate;
 
-/**
- *  遮罩界面
- *  mask view
- */
+/** 遮罩界面 mask view */
 @property (nonatomic, strong) FCMaskView *maskView;
 
-/**
- *  LED灯的开关状态
- *  flashlight state
- */
+/** LED灯的开关状态 flashlight state */
 @property (nonatomic, assign) BOOL torchOn;
 
-/**
- *  关闭按钮
- *  cancel button
- */
+/** 关闭按钮 cancel button */
 @property (nonatomic, weak) IBOutlet UIButton *btnCancel;
 
-/**
- *  LED灯按钮
- *  flashligh switch button
- */
+/** LED灯按钮 flashligh switch button */
 @property (nonatomic, weak) IBOutlet UIButton *btnTorch;
 
 /**
- *  传递委托并初始化
+ *  传递委托和遮罩界面尺寸并初始化
  *  initialize the class with delegate
  *
- *  @param aDelegate 委托
+ *  @param aDelegate   委托
+ *  @param aFrame       初始化遮罩界面用
  *
  *  @return FCQRCodeScanner实例化对象(instance)
  */
-+ (instancetype)scannerWithDelegate:(id <FCQRCodeScannerDelegate>)aDelegate;
++ (instancetype)scannerWithDelegate:(id<FCQRCodeScannerDelegate>)aDelegate frame:(CGRect)aFrame;
 
-/**
- *  开始二维码扫描读取
- *  begin to read
- */
-- (BOOL)startReading;
+/** 开始二维码扫描读取 begin to read */
+- (void)startReading;
 
 @end

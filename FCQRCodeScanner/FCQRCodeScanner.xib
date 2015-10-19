@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -9,6 +12,8 @@
             <connections>
                 <outlet property="btnCancel" destination="3ci-E5-USA" id="duQ-dj-8M6"/>
                 <outlet property="btnTorch" destination="wAT-yI-azl" id="gm3-Zv-bIO"/>
+                <outlet property="lblWarning" destination="dT3-Vf-SIn" id="uOp-AU-F6p"/>
+                <outlet property="subView" destination="ahA-Dp-1Xo" id="Z9a-8g-VG3"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kSK-gD-dcQ"/>
             </connections>
         </placeholder>
@@ -17,6 +22,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahA-Dp-1Xo" userLabel="View">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Access to camara. Allow it in &quot;Settings&quot;-&gt;&quot;Privacy&quot;-&gt;&quot;Camara&quot;." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT3-Vf-SIn">
+                    <rect key="frame" x="45" y="289" width="511" height="22"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="1" green="0.14420902985191209" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" red="0.82103960239684692" green="0.82919788875002987" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAT-yI-azl">
                     <rect key="frame" x="0.0" y="8" width="55" height="55"/>
                     <animations/>
@@ -31,10 +49,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ci-E5-USA">
-                    <rect key="frame" x="0.0" y="517" width="55" height="83"/>
+                    <rect key="frame" x="0.0" y="537" width="55" height="55"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="83" id="Feu-7v-CQv"/>
+                        <constraint firstAttribute="height" constant="55" id="3Uj-pS-YDe"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="33"/>
                     <state key="normal" title="❌">
@@ -44,14 +62,39 @@
                         <action selector="btnCancelTouchUpInside:" destination="-1" eventType="touchUpInside" id="dAk-4E-Kzz"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU6-kn-vOQ" userLabel="Btn Picture">
+                    <rect key="frame" x="65" y="537" width="55" height="55"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="Cpu-Xe-Ava"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="33"/>
+                    <state key="normal" title="🎆">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnCancelTouchUpInside:" destination="-1" eventType="touchUpInside" id="PSs-gr-Rjr"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="3ci-E5-USA" secondAttribute="bottom" id="7FR-li-SJh"/>
+                <constraint firstItem="3ci-E5-USA" firstAttribute="leading" secondItem="wAT-yI-azl" secondAttribute="leading" id="0OI-dL-oeq"/>
+                <constraint firstItem="dT3-Vf-SIn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0TF-6Y-UCJ"/>
+                <constraint firstItem="3ci-E5-USA" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="7ro-E5-3r4"/>
+                <constraint firstItem="eU6-kn-vOQ" firstAttribute="firstBaseline" secondItem="3ci-E5-USA" secondAttribute="baseline" id="Dw4-fy-Q0f"/>
+                <constraint firstItem="dT3-Vf-SIn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FBn-RB-0G7"/>
                 <constraint firstItem="wAT-yI-azl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qja-sN-tuZ"/>
-                <constraint firstItem="3ci-E5-USA" firstAttribute="leading" secondItem="wAT-yI-azl" secondAttribute="leading" id="fT3-mZ-e8E"/>
-                <constraint firstItem="3ci-E5-USA" firstAttribute="trailing" secondItem="wAT-yI-azl" secondAttribute="trailing" id="faA-lD-5N2"/>
+                <constraint firstAttribute="trailing" secondItem="ahA-Dp-1Xo" secondAttribute="trailing" id="We6-N3-fZu"/>
+                <constraint firstAttribute="bottom" secondItem="ahA-Dp-1Xo" secondAttribute="bottom" id="aQb-qY-TMp"/>
+                <constraint firstItem="eU6-kn-vOQ" firstAttribute="baseline" secondItem="3ci-E5-USA" secondAttribute="firstBaseline" id="eCf-T2-5wm"/>
+                <constraint firstItem="ahA-Dp-1Xo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gf3-XQ-dgs"/>
+                <constraint firstItem="3ci-E5-USA" firstAttribute="trailing" secondItem="wAT-yI-azl" secondAttribute="trailing" id="gv3-O6-dQU"/>
+                <constraint firstItem="dT3-Vf-SIn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="45" id="jKY-xx-ZuS"/>
+                <constraint firstItem="eU6-kn-vOQ" firstAttribute="leading" secondItem="3ci-E5-USA" secondAttribute="trailing" constant="10" id="kQd-9P-y7W"/>
+                <constraint firstItem="eU6-kn-vOQ" firstAttribute="top" secondItem="3ci-E5-USA" secondAttribute="top" id="nGk-q4-don"/>
                 <constraint firstItem="wAT-yI-azl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="t6n-mL-ZSY"/>
+                <constraint firstItem="ahA-Dp-1Xo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xXf-ir-ZD4"/>
             </constraints>
             <point key="canvasLocation" x="372" y="275"/>
         </view>

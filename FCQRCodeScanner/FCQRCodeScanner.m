@@ -10,15 +10,21 @@
 #import "FCQRCodeScanner.h"
 
 @interface FCQRCodeScanner (){
-    /**
-     *  是否正在读取
-     */
+    /** 是否正在读取 */
     BOOL isReading;
     AVCaptureSession *captureSession;
     AVCaptureMetadataOutput *captureMetadataOutput;
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
     
     AVAudioPlayer *audioPlayer;
+    
+    IBOutlet UIView *subView;
+    
+    /** 初始化遮罩界面以及扫描界面时用到 used for mask view and scan layer */
+    CGRect superFrame;
+    
+    /** 无权访问相机的警告信息 warning Label for no access to camara*/
+    IBOutlet UILabel *lblWarning;
 }
 
 @end
@@ -27,18 +33,20 @@
 
 @implementation FCQRCodeScanner
 
-+ (instancetype)scannerWithDelegate:(id<FCQRCodeScannerDelegate>)aDelegate{
-    return [[FCQRCodeScanner alloc] initWithDelegate:aDelegate];
++ (instancetype)scannerWithDelegate:(id<FCQRCodeScannerDelegate>)aDelegate frame:(CGRect)aFrame{
+    return [[FCQRCodeScanner alloc] initWithDelegate:aDelegate frame:aFrame];
 }
 
-- (instancetype)initWithDelegate:(id<FCQRCodeScannerDelegate>)aDelegate{
+- (instancetype)initWithDelegate:(id<FCQRCodeScannerDelegate>)aDelegate frame:(CGRect)aFrame{
     self = [super init];
     if (self) {
         // 闪光灯默认不打开
         // Flashlight is off by default.
-        self.torchOn = NO;
+        _torchOn = NO;
         
         _delegate = aDelegate;
+        
+        superFrame = aFrame;
     }
     return self;
 }
@@ -47,10 +55,86 @@
     [super viewDidLoad];
     
     isReading = NO;
+    
+    [self loadCaptureSession];
+}
+
+- (BOOL)camaraAllowed{
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    return (AVAuthorizationStatusAuthorized == status);
+}
+
+- (BOOL)loadCaptureSession{
+    NSError *error;
+    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    lblWarning.hidden = [self camaraAllowed] ? YES : NO;
+    
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        
+    }];
+    
+    AVCaptureDeviceInput *captureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+        
+        return NO;
+    }
+    
+    captureSession = [[AVCaptureSession alloc] init];
+    [captureSession setSessionPreset:AVCaptureSessionPresetHigh];
+    
+    captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
+    
+    if ([captureSession canAddInput:captureDeviceInput]) {
+        [captureSession addInput:captureDeviceInput];
+    }
+    
+    if ([captureSession canAddOutput:captureMetadataOutput]) {
+        [captureSession addOutput:captureMetadataOutput];
+    }
+    
+//    dispatch_queue_t dispatchQueue = dispatch_queue_create("outputQueue", NULL);
+    [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+    
+    // 这里可以添加其他的类型
+    // may add other types if you need.
+    [captureMetadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+    
+    captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:captureSession];
+    [captureVideoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    captureVideoPreviewLayer.connection.videoOrientation = AVCaptureVideoOrientationPortrait;
+    
+    // 初始化遮罩
+    // initialize mask
+    _maskView = [FCMaskView maskViewWithFrame:superFrame];
+    [captureVideoPreviewLayer setFrame:superFrame];
+    
+    [subView.layer addSublayer:captureVideoPreviewLayer];
+    [subView addSubview:_maskView];
+    
+    [self startReading];
+    [captureSession startRunning];
+    
+    return YES;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [_maskView letScanLineMove];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)applicationWillEnterForeground{
+    [_maskView letScanLineMove];
 }
 
 //- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
@@ -84,92 +168,28 @@
 //    _maskView.frame = frame;
 //}
 
-/**
- *  读取数据
- *  read data
- *
- *  @return 是否成功启动读取设备(start succeed or not.)
- */
-- (BOOL)startReading{
+/** 读取数据 read data */
+- (void)startReading{
     isReading = YES;
-    
-    NSError *error;
-    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
-    AVCaptureDeviceInput *captureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
-    
-    if (error) {
-        NSLog(@"%@", [error localizedDescription]);
-        
-        return NO;
-    }
-    
-    captureSession = [[AVCaptureSession alloc] init];
-    [captureSession setSessionPreset:AVCaptureSessionPresetHigh];
-    
-    captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
-    
-    if ([captureSession canAddInput:captureDeviceInput]) {
-        [captureSession addInput:captureDeviceInput];
-    }
-    
-    if ([captureSession canAddOutput:captureMetadataOutput]) {
-        [captureSession addOutput:captureMetadataOutput];
-    }
-    
-    dispatch_queue_t dispatchQueue = dispatch_queue_create("outputQueue", NULL);
-    [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
-    
-    // 这里可以添加其他的类型
-    // may add other types if you need.
-    [captureMetadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
-    
-    captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:captureSession];
-    [captureVideoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    captureVideoPreviewLayer.connection.videoOrientation = AVCaptureVideoOrientationPortrait;
-    [captureVideoPreviewLayer setFrame:self.view.frame];
-    
-    // 初始化遮罩
-    // initialize mask
-    _maskView = [FCMaskView maskViewWithFrame:self.view.frame];
-    
-    [self.view.layer addSublayer:captureVideoPreviewLayer];
-    [self.view addSubview:_maskView];
-    
-    [self.view bringSubviewToFront:_btnCancel];
-    [self.view bringSubviewToFront:_btnTorch];
-    
-    [captureSession startRunning];
-    
-    return YES;
 }
 
 
-/**
- *  停止读取数据
- *  stop reading data
- */
+/**停止读取数据 stop reading data */
 - (void)stopReading{
-    [captureSession stopRunning];
-    captureSession = nil;
+    isReading = NO;
 }
 
-/**
- *  关闭扫描界面(包括停止读取数据, 调用委托)
- *  stop reading data and call the delegation to close this view
- */
+/** 关闭扫描界面(包括停止读取数据, 调用委托) stop reading data and call the delegation to close this view */
 - (void)close {
     [self stopReading];
+    [captureSession stopRunning];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(close)]) {
         [self.delegate performSelector:@selector(close)];
     }
 }
 
-/**
- *  二维码扫描结束后播放声音
- *  If scan is over, play a beep sound.
- */
+/** 二维码扫描结束后播放声音 If scan is over, play a beep sound. */
 -(void)loadBeepSound{
     NSString *beepFilePath = [[NSBundle mainBundle] pathForResource:@"beep" ofType:@"mp3"];
     NSURL *beepURL = [NSURL URLWithString:beepFilePath];
@@ -201,26 +221,16 @@
     }
 }
 #pragma mark <<< Button Event >>>
-/**
- *  取消捕捉的按钮按下的方法
- *  Button event for X button
- *
- *  @param sender 按钮(X button)
- */
+/** 取消捕捉的按钮按下的方法 Button event for X button */
 - (IBAction)btnCancelTouchUpInside:(id)sender{
     [self close];
 }
 
-/**
- *  闪光灯按钮按下的方法
- *  Flashlight event for on/off
- *
- *  @param sender 闪光灯按钮(flashlight button)
- */
+/** 闪光灯按钮按下的方法 Flashlight event for on/off */
 - (IBAction)btnTorchSwitchTouchUpInside:(id)sender{
     // 如果开关关闭, 则打开, 打开, 则关闭
     // If the switch on, turn off. Otherwise, turn on.
-    self.torchOn = self.torchOn ? NO : YES;
+    _torchOn = _torchOn ? NO : YES;
     
     [self torchSwitch:self.torchOn];
 }
@@ -246,6 +256,11 @@
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             NSLog(@"-------扫描结果为:%@", metadataObj);
             
+            [self loadBeepSound];
+            isReading = NO;
+            
+            [self stopReading];
+            
             //获取二维码的委托方法
             if (_delegate && [_delegate respondsToSelector:@selector(getQRCodeWithString:)]) {
                 [_delegate performSelector:@selector(getQRCodeWithString:) withObject:metadataObj.stringValue];
@@ -254,11 +269,6 @@
             if (_delegate && [_delegate respondsToSelector:@selector(getQRCodeWithAVMetadataMachineReadableCodeObject:)]) {
                 [_delegate performSelector:@selector(getQRCodeWithAVMetadataMachineReadableCodeObject:) withObject:metadataObj];
             }
-            
-            [self loadBeepSound];
-            isReading = NO;
-            
-            [self stopReading];
         }
     }
 }

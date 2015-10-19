@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011F14F91BCFA6EB00368E84 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 011F14F81BCFA6EB00368E84 /* 11.png */; settings = {ASSET_TAGS = (); }; };
 		01608E491BCCA241001C1901 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608E481BCCA241001C1901 /* main.m */; };
 		01608E4C1BCCA241001C1901 /* FCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608E4B1BCCA241001C1901 /* FCAppDelegate.m */; };
 		01608E4F1BCCA241001C1901 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608E4E1BCCA241001C1901 /* ViewController.m */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011F14F81BCFA6EB00368E84 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 11.png; path = ../../../../Desktop/11.png; sourceTree = "<group>"; };
 		01608E441BCCA241001C1901 /* FCCodeScannerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCCodeScannerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01608E481BCCA241001C1901 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		01608E4A1BCCA241001C1901 /* FCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				01608E851BCCA32E001C1901 /* FCQRCodeGenerator.m */,
 				01608EB41BCDFB43001C1901 /* beep.mp3 */,
 				01608E891BCCA32E001C1901 /* libqrencode */,
+				011F14F81BCFA6EB00368E84 /* 11.png */,
 			);
 			name = FCQRCodeScanner;
 			path = ../../FCQRCodeScanner;
@@ -214,6 +217,7 @@
 				01608E9A1BCCA32E001C1901 /* FCQRCodeScanner.xib in Resources */,
 				01608EAB1BCCD9CB001C1901 /* ViewController.xib in Resources */,
 				01608E541BCCA241001C1901 /* Assets.xcassets in Resources */,
+				011F14F91BCFA6EB00368E84 /* 11.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +346,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FCCodeScannerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mistery.FCCodeScannerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,6 +358,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FCCodeScannerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mistery.FCCodeScannerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
