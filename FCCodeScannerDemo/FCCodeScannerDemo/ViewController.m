@@ -55,29 +55,25 @@
 }
 
 - (IBAction)btnScanTouchUpInside:(id)sender{
-    scanner = [FCQRCodeScanner scannerWithDelegate:self frame:self.view.frame];
+    __weak typeof(self) weakSelf = self;
+    scanner = [FCQRCodeScanner scannerWithFrame:self.view.frame
+                                     completion:^(NSString *codeString) {
+                                         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"QRCode is: " message:codeString preferredStyle:UIAlertControllerStyleAlert];
+                                         
+                                         UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                                             [scanner startReading];
+                                         }];
+                                         
+                                         [alert addAction:action];
+                                         
+                                         [weakSelf presentViewController:alert animated:YES completion:nil];
+                                     }
+                                dismissedAction:^{
+                                    [scanner.view removeFromSuperview];
+                                }];
 
-    [self presentViewController:scanner animated:YES completion:nil];
-}
-
-#pragma mark  <<< ||| FCQRCodeDelegate ||| >>>
-
-- (void)close{
-//    [scanner.view removeFromSuperview];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)getQRCodeWithString:(NSString *)aString{
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"QRCode is: " message:aString preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [scanner startReading];
-    }];
-    
-    [alert addAction:action];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+    [self.view addSubview:scanner.view];
+//    [self presentViewController:scanner animated:YES completion:nil];
 }
 
 #pragma mark  <<< ||| UIImagePickerControllerDelegate ||| >>>

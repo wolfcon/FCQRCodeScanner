@@ -10,7 +10,7 @@
 #import "FCQRCodeGenerator.h"
 #import "FCQRCodeScanner.h"
 
-@interface ViewController : UIViewController <FCQRCodeScannerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
 @end

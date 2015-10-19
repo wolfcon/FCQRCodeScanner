@@ -27,26 +27,32 @@
     IBOutlet UILabel *lblWarning;
 }
 
+@property (copy) void (^completion)(NSString *codeString);
+
+@property (copy) void (^dismissedAction)(void);
+
 @end
 
 #pragma mark -
 
 @implementation FCQRCodeScanner
 
-+ (instancetype)scannerWithDelegate:(id<FCQRCodeScannerDelegate>)aDelegate frame:(CGRect)aFrame{
-    return [[FCQRCodeScanner alloc] initWithDelegate:aDelegate frame:aFrame];
+
++ (instancetype)scannerWithFrame:(CGRect)frame completion:(void (^)(NSString *))completion dismissedAction:(void (^)(void))dismissedAction {
+    return [[FCQRCodeScanner alloc] initWithFrame:frame completion:completion dismissedAction:dismissedAction];
 }
 
-- (instancetype)initWithDelegate:(id<FCQRCodeScannerDelegate>)aDelegate frame:(CGRect)aFrame{
+- (instancetype)initWithFrame:(CGRect)frame completion:(void (^)(NSString *))completion dismissedAction:(void (^)(void))dismissedAction {
     self = [super init];
     if (self) {
         // 闪光灯默认不打开
         // Flashlight is off by default.
         _torchOn = NO;
         
-        _delegate = aDelegate;
+        superFrame = frame;
         
-        superFrame = aFrame;
+        _completion = completion;
+        _dismissedAction = dismissedAction;
     }
     return self;
 }
@@ -59,6 +65,11 @@
     [self loadCaptureSession];
 }
 
+/**
+ *  检查摄像头的授权信息
+ *
+ *  @return 是否拥有授权
+ */
 - (BOOL)camaraAllowed{
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     return (AVAuthorizationStatusAuthorized == status);
@@ -68,11 +79,8 @@
     NSError *error;
     AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
+    //根据拥有授权动态隐藏信息
     lblWarning.hidden = [self camaraAllowed] ? YES : NO;
-    
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-        
-    }];
     
     AVCaptureDeviceInput *captureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
     
@@ -95,7 +103,6 @@
         [captureSession addOutput:captureMetadataOutput];
     }
     
-//    dispatch_queue_t dispatchQueue = dispatch_queue_create("outputQueue", NULL);
     [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
     
     // 这里可以添加其他的类型
@@ -184,9 +191,7 @@
     [self stopReading];
     [captureSession stopRunning];
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(close)]) {
-        [self.delegate performSelector:@selector(close)];
-    }
+    _dismissedAction();
 }
 
 /** 二维码扫描结束后播放声音 If scan is over, play a beep sound. */
@@ -252,23 +257,14 @@
     //判断metadata不为空
     if (metadataObjects != nil && [metadataObjects count] > 0) {
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
+        
         //判断读取到的对象类型是QR码
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             NSLog(@"-------扫描结果为:%@", metadataObj);
-            
-            [self loadBeepSound];
-            isReading = NO;
-            
             [self stopReading];
+            [self loadBeepSound];
             
-            //获取二维码的委托方法
-            if (_delegate && [_delegate respondsToSelector:@selector(getQRCodeWithString:)]) {
-                [_delegate performSelector:@selector(getQRCodeWithString:) withObject:metadataObj.stringValue];
-            }
-            
-            if (_delegate && [_delegate respondsToSelector:@selector(getQRCodeWithAVMetadataMachineReadableCodeObject:)]) {
-                [_delegate performSelector:@selector(getQRCodeWithAVMetadataMachineReadableCodeObject:) withObject:metadataObj];
-            }
+            _completion(metadataObj.stringValue);
         }
     }
 }

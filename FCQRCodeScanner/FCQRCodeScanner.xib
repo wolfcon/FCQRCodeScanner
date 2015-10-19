@@ -27,8 +27,8 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Access to camara. Allow it in &quot;Settings&quot;-&gt;&quot;Privacy&quot;-&gt;&quot;Camara&quot;." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT3-Vf-SIn">
-                    <rect key="frame" x="45" y="289" width="511" height="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Access to camara. Allow it in &quot;Settings&quot;-&gt;&quot;Privacy&quot;-&gt;&quot;Camara&quot;." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT3-Vf-SIn">
+                    <rect key="frame" x="45" y="276" width="511" height="49"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="1" green="0.14420902985191209" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
