@@ -8,6 +8,7 @@
 
 
 #import "FCQRCodeScanner.h"
+#import "AVAudioPlayer+FCPlayFile.h"
 
 @interface FCQRCodeScanner (){
     /** 是否正在读取 */
@@ -15,8 +16,6 @@
     AVCaptureSession *captureSession;
     AVCaptureMetadataOutput *captureMetadataOutput;
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
-    
-    AVAudioPlayer *audioPlayer;
     
     IBOutlet UIView *subView;
     
@@ -63,6 +62,7 @@
     isReading = NO;
     
     [self loadCaptureSession];
+    self.view.frame = superFrame;
 }
 
 /**
@@ -132,11 +132,15 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
     [_maskView letScanLineMove];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -194,21 +198,6 @@
     _dismissedAction();
 }
 
-/** 二维码扫描结束后播放声音 If scan is over, play a beep sound. */
--(void)loadBeepSound{
-    NSString *beepFilePath = [[NSBundle mainBundle] pathForResource:@"beep" ofType:@"mp3"];
-    NSURL *beepURL = [NSURL URLWithString:beepFilePath];
-    NSError *error;
-    
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:beepURL error:&error];
-    if (error) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    else{
-        [audioPlayer play];
-    }
-}
-
 /**
  *  闪光灯开关, 打开还是关闭
  *  Flashlight switch, on/off
@@ -240,6 +229,10 @@
     [self torchSwitch:self.torchOn];
 }
 
+- (IBAction)btnChooseImageFromLibraryTouchUpInside:(id)sender{
+    
+}
+
 #pragma mark - <<< AVCaptureMetadataOutputObjectsDelegate >>>
 /**
  *  AVCaptureMetadataOutputObjectsDelegate委托函数, 用于获取到捕捉的数据
@@ -262,7 +255,7 @@
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             NSLog(@"-------扫描结果为:%@", metadataObj);
             [self stopReading];
-            [self loadBeepSound];
+            [AVAudioPlayer playBeepSound];
             
             _completion(metadataObj.stringValue);
         }

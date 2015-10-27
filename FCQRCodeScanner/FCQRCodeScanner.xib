@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -27,7 +25,7 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Access to camara. Allow it in &quot;Settings&quot;-&gt;&quot;Privacy&quot;-&gt;&quot;Camara&quot;." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT3-Vf-SIn">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Access to camara. Allow it in &quot;Settings&quot;-&gt;&quot;Privacy&quot;-&gt;&quot;Camara&quot;." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="500" translatesAutoresizingMaskIntoConstraints="NO" id="dT3-Vf-SIn">
                     <rect key="frame" x="45" y="276" width="511" height="49"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -62,18 +60,33 @@
                         <action selector="btnCancelTouchUpInside:" destination="-1" eventType="touchUpInside" id="dAk-4E-Kzz"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU6-kn-vOQ" userLabel="Btn Picture">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU6-kn-vOQ" userLabel="Btn Picture">
                     <rect key="frame" x="65" y="537" width="55" height="55"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="55" id="Cpu-Xe-Ava"/>
+                        <constraint firstAttribute="width" constant="55" id="EPB-tb-tXC"/>
+                        <constraint firstAttribute="height" constant="55" id="jjq-a2-znH"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="33"/>
                     <state key="normal" title="🎆">
                         <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="EPB-tb-tXC"/>
+                            <exclude reference="jjq-a2-znH"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <exclude reference="Cpu-Xe-Ava"/>
+                            <include reference="EPB-tb-tXC"/>
+                            <include reference="jjq-a2-znH"/>
+                        </mask>
+                    </variation>
                     <connections>
-                        <action selector="btnCancelTouchUpInside:" destination="-1" eventType="touchUpInside" id="PSs-gr-Rjr"/>
+                        <action selector="btnChooseImageFromLibraryTouchUpInside:" destination="-1" eventType="touchUpInside" id="Q1B-gk-7R6"/>
                     </connections>
                 </button>
             </subviews>
@@ -82,21 +95,35 @@
                 <constraint firstItem="3ci-E5-USA" firstAttribute="leading" secondItem="wAT-yI-azl" secondAttribute="leading" id="0OI-dL-oeq"/>
                 <constraint firstItem="dT3-Vf-SIn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0TF-6Y-UCJ"/>
                 <constraint firstItem="3ci-E5-USA" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="7ro-E5-3r4"/>
-                <constraint firstItem="eU6-kn-vOQ" firstAttribute="firstBaseline" secondItem="3ci-E5-USA" secondAttribute="baseline" id="Dw4-fy-Q0f"/>
                 <constraint firstItem="dT3-Vf-SIn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FBn-RB-0G7"/>
                 <constraint firstItem="wAT-yI-azl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qja-sN-tuZ"/>
                 <constraint firstAttribute="trailing" secondItem="ahA-Dp-1Xo" secondAttribute="trailing" id="We6-N3-fZu"/>
                 <constraint firstAttribute="bottom" secondItem="ahA-Dp-1Xo" secondAttribute="bottom" id="aQb-qY-TMp"/>
-                <constraint firstItem="eU6-kn-vOQ" firstAttribute="baseline" secondItem="3ci-E5-USA" secondAttribute="firstBaseline" id="eCf-T2-5wm"/>
                 <constraint firstItem="ahA-Dp-1Xo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gf3-XQ-dgs"/>
                 <constraint firstItem="3ci-E5-USA" firstAttribute="trailing" secondItem="wAT-yI-azl" secondAttribute="trailing" id="gv3-O6-dQU"/>
                 <constraint firstItem="dT3-Vf-SIn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="45" id="jKY-xx-ZuS"/>
                 <constraint firstItem="eU6-kn-vOQ" firstAttribute="leading" secondItem="3ci-E5-USA" secondAttribute="trailing" constant="10" id="kQd-9P-y7W"/>
                 <constraint firstItem="eU6-kn-vOQ" firstAttribute="top" secondItem="3ci-E5-USA" secondAttribute="top" id="nGk-q4-don"/>
                 <constraint firstItem="wAT-yI-azl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="t6n-mL-ZSY"/>
+                <constraint firstItem="eU6-kn-vOQ" firstAttribute="top" secondItem="3ci-E5-USA" secondAttribute="top" id="x9S-E9-HZr"/>
                 <constraint firstItem="ahA-Dp-1Xo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xXf-ir-ZD4"/>
+                <constraint firstItem="eU6-kn-vOQ" firstAttribute="leading" secondItem="3ci-E5-USA" secondAttribute="trailing" constant="10" id="xtW-jz-MUr"/>
             </constraints>
-            <point key="canvasLocation" x="372" y="275"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="x9S-E9-HZr"/>
+                    <exclude reference="xtW-jz-MUr"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <exclude reference="kQd-9P-y7W"/>
+                    <exclude reference="nGk-q4-don"/>
+                    <include reference="x9S-E9-HZr"/>
+                    <include reference="xtW-jz-MUr"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="351" y="244"/>
         </view>
     </objects>
 </document>

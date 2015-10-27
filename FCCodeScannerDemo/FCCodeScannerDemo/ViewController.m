@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "FCMaskView.h"
+#import "UIImage+Decode.h"
+#import "NSString+FCQRCodeGenerator.h"
 
 
 @interface ViewController (){
@@ -30,18 +31,12 @@
     [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 
-- (NSString *)decodeImage:(UIImage *)image{
-    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
-
-    NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
-    
-    CIQRCodeFeature *f = [features firstObject];
-    
-    return f.messageString;
+- (IBAction)btnGenerateTouchUpInside:(id)sender {
+    imageViewQRCode.image = [@"dont see me!" qRImageWithSize:240 avatar:[UIImage imageNamed:@"11"]];
 }
 
 - (IBAction)btnDecodeTouchUpinside:(id)sender {
-    NSString *message = [self decodeImage:imageViewQRCode.image];
+    NSString *message = [imageViewQRCode.image decodeWithQRCodeType];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"QRCode is: " message:message preferredStyle:UIAlertControllerStyleAlert];
     
@@ -71,9 +66,8 @@
                                 dismissedAction:^{
                                     [scanner.view removeFromSuperview];
                                 }];
-
+    
     [self.view addSubview:scanner.view];
-//    [self presentViewController:scanner animated:YES completion:nil];
 }
 
 #pragma mark  <<< ||| UIImagePickerControllerDelegate ||| >>>
@@ -81,8 +75,9 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
+    // decode it after selected.
     [self dismissViewControllerAnimated:YES completion:^{
-        if (![self decodeImage:image]) {
+        if (![image decodeWithQRCodeType]) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"sorry, can't decode this image!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
             
             [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];

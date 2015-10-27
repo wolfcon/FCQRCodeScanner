@@ -11,20 +11,17 @@
 		01608E4C1BCCA241001C1901 /* FCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608E4B1BCCA241001C1901 /* FCAppDelegate.m */; };
 		01608E4F1BCCA241001C1901 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608E4E1BCCA241001C1901 /* ViewController.m */; };
 		01608E541BCCA241001C1901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01608E531BCCA241001C1901 /* Assets.xcassets */; };
-		01608E981BCCA32E001C1901 /* FCQRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608E851BCCA32E001C1901 /* FCQRCodeGenerator.m */; settings = {ASSET_TAGS = (); }; };
-		01608E991BCCA32E001C1901 /* FCQRCodeScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608E871BCCA32E001C1901 /* FCQRCodeScanner.m */; settings = {ASSET_TAGS = (); }; };
-		01608E9A1BCCA32E001C1901 /* FCQRCodeScanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01608E881BCCA32E001C1901 /* FCQRCodeScanner.xib */; settings = {ASSET_TAGS = (); }; };
-		01608E9B1BCCA32E001C1901 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 01608E8A1BCCA32E001C1901 /* bitstream.c */; settings = {ASSET_TAGS = (); }; };
-		01608E9C1BCCA32E001C1901 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 01608E8C1BCCA32E001C1901 /* mask.c */; settings = {ASSET_TAGS = (); }; };
-		01608E9D1BCCA32E001C1901 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 01608E8E1BCCA32E001C1901 /* qrencode.c */; settings = {ASSET_TAGS = (); }; };
-		01608E9E1BCCA32E001C1901 /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 01608E901BCCA32E001C1901 /* qrinput.c */; settings = {ASSET_TAGS = (); }; };
-		01608E9F1BCCA32E001C1901 /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 01608E921BCCA32E001C1901 /* qrspec.c */; settings = {ASSET_TAGS = (); }; };
-		01608EA01BCCA32E001C1901 /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 01608E941BCCA32E001C1901 /* rscode.c */; settings = {ASSET_TAGS = (); }; };
-		01608EA11BCCA32E001C1901 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 01608E961BCCA32E001C1901 /* split.c */; settings = {ASSET_TAGS = (); }; };
-		01608EA41BCCB721001C1901 /* FCMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608EA31BCCB721001C1901 /* FCMaskView.m */; settings = {ASSET_TAGS = (); }; };
-		01608EA91BCCD436001C1901 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01608EA71BCCD436001C1901 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		01608EAB1BCCD9CB001C1901 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01608EAA1BCCD9CB001C1901 /* ViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		01608EB51BCDFB43001C1901 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01608EB41BCDFB43001C1901 /* beep.mp3 */; settings = {ASSET_TAGS = (); }; };
+		01608E991BCCA32E001C1901 /* FCQRCodeScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608E871BCCA32E001C1901 /* FCQRCodeScanner.m */; };
+		01608E9A1BCCA32E001C1901 /* FCQRCodeScanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01608E881BCCA32E001C1901 /* FCQRCodeScanner.xib */; };
+		01608EA41BCCB721001C1901 /* FCMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01608EA31BCCB721001C1901 /* FCMaskView.m */; };
+		01608EA91BCCD436001C1901 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01608EA71BCCD436001C1901 /* Launch Screen.storyboard */; };
+		01608EAB1BCCD9CB001C1901 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01608EAA1BCCD9CB001C1901 /* ViewController.xib */; };
+		01608EB51BCDFB43001C1901 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 01608EB41BCDFB43001C1901 /* beep.mp3 */; };
+		019DFE0B1BDF783A00C9855F /* NSString+FCQRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 019DFE0A1BDF783A00C9855F /* NSString+FCQRCodeGenerator.m */; };
+		019DFE111BDF7E4000C9855F /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 019DFE101BDF7E4000C9855F /* 11.png */; };
+		01BA24371BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BA24361BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m */; };
+		01F8B3C91BDE1D2D00A4EBE5 /* UIImage+Avatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F8B3C81BDE1D2D00A4EBE5 /* UIImage+Avatar.m */; };
+		01FF8ECA1BDF6EF300CE8CF0 /* UIImage+Decode.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FF8EC91BDF6EF300CE8CF0 /* UIImage+Decode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,30 +33,23 @@
 		01608E4E1BCCA241001C1901 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		01608E531BCCA241001C1901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01608E581BCCA241001C1901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01608E841BCCA32E001C1901 /* FCQRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCQRCodeGenerator.h; sourceTree = "<group>"; };
-		01608E851BCCA32E001C1901 /* FCQRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCQRCodeGenerator.m; sourceTree = "<group>"; };
 		01608E861BCCA32E001C1901 /* FCQRCodeScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCQRCodeScanner.h; sourceTree = "<group>"; };
 		01608E871BCCA32E001C1901 /* FCQRCodeScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCQRCodeScanner.m; sourceTree = "<group>"; };
 		01608E881BCCA32E001C1901 /* FCQRCodeScanner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCQRCodeScanner.xib; sourceTree = "<group>"; };
-		01608E8A1BCCA32E001C1901 /* bitstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitstream.c; sourceTree = "<group>"; };
-		01608E8B1BCCA32E001C1901 /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitstream.h; sourceTree = "<group>"; };
-		01608E8C1BCCA32E001C1901 /* mask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mask.c; sourceTree = "<group>"; };
-		01608E8D1BCCA32E001C1901 /* mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mask.h; sourceTree = "<group>"; };
-		01608E8E1BCCA32E001C1901 /* qrencode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrencode.c; sourceTree = "<group>"; };
-		01608E8F1BCCA32E001C1901 /* qrencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrencode.h; sourceTree = "<group>"; };
-		01608E901BCCA32E001C1901 /* qrinput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrinput.c; sourceTree = "<group>"; };
-		01608E911BCCA32E001C1901 /* qrinput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrinput.h; sourceTree = "<group>"; };
-		01608E921BCCA32E001C1901 /* qrspec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrspec.c; sourceTree = "<group>"; };
-		01608E931BCCA32E001C1901 /* qrspec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrspec.h; sourceTree = "<group>"; };
-		01608E941BCCA32E001C1901 /* rscode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rscode.c; sourceTree = "<group>"; };
-		01608E951BCCA32E001C1901 /* rscode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rscode.h; sourceTree = "<group>"; };
-		01608E961BCCA32E001C1901 /* split.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = split.c; sourceTree = "<group>"; };
-		01608E971BCCA32E001C1901 /* split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = split.h; sourceTree = "<group>"; };
 		01608EA21BCCB721001C1901 /* FCMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCMaskView.h; sourceTree = "<group>"; };
 		01608EA31BCCB721001C1901 /* FCMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCMaskView.m; sourceTree = "<group>"; };
 		01608EA81BCCD436001C1901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "FCCodeScannerDemo/Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		01608EAA1BCCD9CB001C1901 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		01608EB41BCDFB43001C1901 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		019DFE091BDF783A00C9855F /* NSString+FCQRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FCQRCodeGenerator.h"; sourceTree = "<group>"; };
+		019DFE0A1BDF783A00C9855F /* NSString+FCQRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FCQRCodeGenerator.m"; sourceTree = "<group>"; };
+		019DFE101BDF7E4000C9855F /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		01BA24351BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAudioPlayer+FCPlayFile.h"; sourceTree = "<group>"; };
+		01BA24361BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAudioPlayer+FCPlayFile.m"; sourceTree = "<group>"; };
+		01F8B3C71BDE1D2D00A4EBE5 /* UIImage+Avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Avatar.h"; sourceTree = "<group>"; };
+		01F8B3C81BDE1D2D00A4EBE5 /* UIImage+Avatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Avatar.m"; sourceTree = "<group>"; };
+		01FF8EC81BDF6EF300CE8CF0 /* UIImage+Decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Decode.h"; sourceTree = "<group>"; };
+		01FF8EC91BDF6EF300CE8CF0 /* UIImage+Decode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Decode.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,34 +112,27 @@
 				01608E861BCCA32E001C1901 /* FCQRCodeScanner.h */,
 				01608E871BCCA32E001C1901 /* FCQRCodeScanner.m */,
 				01608E881BCCA32E001C1901 /* FCQRCodeScanner.xib */,
-				01608E841BCCA32E001C1901 /* FCQRCodeGenerator.h */,
-				01608E851BCCA32E001C1901 /* FCQRCodeGenerator.m */,
+				019DFE0F1BDF7D6400C9855F /* Category */,
 				01608EB41BCDFB43001C1901 /* beep.mp3 */,
-				01608E891BCCA32E001C1901 /* libqrencode */,
+				019DFE101BDF7E4000C9855F /* 11.png */,
 			);
 			name = FCQRCodeScanner;
 			path = ../../FCQRCodeScanner;
 			sourceTree = "<group>";
 		};
-		01608E891BCCA32E001C1901 /* libqrencode */ = {
+		019DFE0F1BDF7D6400C9855F /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				01608E8A1BCCA32E001C1901 /* bitstream.c */,
-				01608E8B1BCCA32E001C1901 /* bitstream.h */,
-				01608E8C1BCCA32E001C1901 /* mask.c */,
-				01608E8D1BCCA32E001C1901 /* mask.h */,
-				01608E8E1BCCA32E001C1901 /* qrencode.c */,
-				01608E8F1BCCA32E001C1901 /* qrencode.h */,
-				01608E901BCCA32E001C1901 /* qrinput.c */,
-				01608E911BCCA32E001C1901 /* qrinput.h */,
-				01608E921BCCA32E001C1901 /* qrspec.c */,
-				01608E931BCCA32E001C1901 /* qrspec.h */,
-				01608E941BCCA32E001C1901 /* rscode.c */,
-				01608E951BCCA32E001C1901 /* rscode.h */,
-				01608E961BCCA32E001C1901 /* split.c */,
-				01608E971BCCA32E001C1901 /* split.h */,
+				019DFE091BDF783A00C9855F /* NSString+FCQRCodeGenerator.h */,
+				019DFE0A1BDF783A00C9855F /* NSString+FCQRCodeGenerator.m */,
+				01BA24351BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.h */,
+				01BA24361BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m */,
+				01F8B3C71BDE1D2D00A4EBE5 /* UIImage+Avatar.h */,
+				01F8B3C81BDE1D2D00A4EBE5 /* UIImage+Avatar.m */,
+				01FF8EC81BDF6EF300CE8CF0 /* UIImage+Decode.h */,
+				01FF8EC91BDF6EF300CE8CF0 /* UIImage+Decode.m */,
 			);
-			path = libqrencode;
+			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +166,7 @@
 				TargetAttributes = {
 					01608E431BCCA241001C1901 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = NA88Z4T63A;
 					};
 				};
 			};
@@ -210,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01608EA91BCCD436001C1901 /* Launch Screen.storyboard in Resources */,
+				019DFE111BDF7E4000C9855F /* 11.png in Resources */,
 				01608EB51BCDFB43001C1901 /* beep.mp3 in Resources */,
 				01608E9A1BCCA32E001C1901 /* FCQRCodeScanner.xib in Resources */,
 				01608EAB1BCCD9CB001C1901 /* ViewController.xib in Resources */,
@@ -224,19 +209,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01608EA11BCCA32E001C1901 /* split.c in Sources */,
 				01608EA41BCCB721001C1901 /* FCMaskView.m in Sources */,
-				01608E981BCCA32E001C1901 /* FCQRCodeGenerator.m in Sources */,
-				01608E9B1BCCA32E001C1901 /* bitstream.c in Sources */,
 				01608E4F1BCCA241001C1901 /* ViewController.m in Sources */,
-				01608EA01BCCA32E001C1901 /* rscode.c in Sources */,
-				01608E9F1BCCA32E001C1901 /* qrspec.c in Sources */,
 				01608E4C1BCCA241001C1901 /* FCAppDelegate.m in Sources */,
-				01608E9D1BCCA32E001C1901 /* qrencode.c in Sources */,
-				01608E9E1BCCA32E001C1901 /* qrinput.c in Sources */,
-				01608E9C1BCCA32E001C1901 /* mask.c in Sources */,
+				01BA24371BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m in Sources */,
 				01608E991BCCA32E001C1901 /* FCQRCodeScanner.m in Sources */,
+				019DFE0B1BDF783A00C9855F /* NSString+FCQRCodeGenerator.m in Sources */,
+				01F8B3C91BDE1D2D00A4EBE5 /* UIImage+Avatar.m in Sources */,
 				01608E491BCCA241001C1901 /* main.m in Sources */,
+				01FF8ECA1BDF6EF300CE8CF0 /* UIImage+Decode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -329,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -341,8 +322,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FCCodeScannerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mistery.FCCodeScannerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,8 +335,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FCCodeScannerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Mistery.FCCodeScannerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
