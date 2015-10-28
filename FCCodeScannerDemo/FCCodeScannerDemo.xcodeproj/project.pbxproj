@@ -20,8 +20,8 @@
 		019DFE0B1BDF783A00C9855F /* NSString+FCQRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 019DFE0A1BDF783A00C9855F /* NSString+FCQRCodeGenerator.m */; };
 		019DFE111BDF7E4000C9855F /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 019DFE101BDF7E4000C9855F /* 11.png */; };
 		01BA24371BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BA24361BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m */; };
-		01F8B3C91BDE1D2D00A4EBE5 /* UIImage+Avatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F8B3C81BDE1D2D00A4EBE5 /* UIImage+Avatar.m */; };
-		01FF8ECA1BDF6EF300CE8CF0 /* UIImage+Decode.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FF8EC91BDF6EF300CE8CF0 /* UIImage+Decode.m */; };
+		01F8B3C91BDE1D2D00A4EBE5 /* UIImage+FCAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F8B3C81BDE1D2D00A4EBE5 /* UIImage+FCAvatar.m */; };
+		01FF8ECA1BDF6EF300CE8CF0 /* UIImage+FCDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FF8EC91BDF6EF300CE8CF0 /* UIImage+FCDecode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,10 +46,10 @@
 		019DFE101BDF7E4000C9855F /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
 		01BA24351BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAudioPlayer+FCPlayFile.h"; sourceTree = "<group>"; };
 		01BA24361BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAudioPlayer+FCPlayFile.m"; sourceTree = "<group>"; };
-		01F8B3C71BDE1D2D00A4EBE5 /* UIImage+Avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Avatar.h"; sourceTree = "<group>"; };
-		01F8B3C81BDE1D2D00A4EBE5 /* UIImage+Avatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Avatar.m"; sourceTree = "<group>"; };
-		01FF8EC81BDF6EF300CE8CF0 /* UIImage+Decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Decode.h"; sourceTree = "<group>"; };
-		01FF8EC91BDF6EF300CE8CF0 /* UIImage+Decode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Decode.m"; sourceTree = "<group>"; };
+		01F8B3C71BDE1D2D00A4EBE5 /* UIImage+FCAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FCAvatar.h"; sourceTree = "<group>"; };
+		01F8B3C81BDE1D2D00A4EBE5 /* UIImage+FCAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FCAvatar.m"; sourceTree = "<group>"; };
+		01FF8EC81BDF6EF300CE8CF0 /* UIImage+FCDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FCDecode.h"; sourceTree = "<group>"; };
+		01FF8EC91BDF6EF300CE8CF0 /* UIImage+FCDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FCDecode.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +127,10 @@
 				019DFE0A1BDF783A00C9855F /* NSString+FCQRCodeGenerator.m */,
 				01BA24351BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.h */,
 				01BA24361BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m */,
-				01F8B3C71BDE1D2D00A4EBE5 /* UIImage+Avatar.h */,
-				01F8B3C81BDE1D2D00A4EBE5 /* UIImage+Avatar.m */,
-				01FF8EC81BDF6EF300CE8CF0 /* UIImage+Decode.h */,
-				01FF8EC91BDF6EF300CE8CF0 /* UIImage+Decode.m */,
+				01F8B3C71BDE1D2D00A4EBE5 /* UIImage+FCAvatar.h */,
+				01F8B3C81BDE1D2D00A4EBE5 /* UIImage+FCAvatar.m */,
+				01FF8EC81BDF6EF300CE8CF0 /* UIImage+FCDecode.h */,
+				01FF8EC91BDF6EF300CE8CF0 /* UIImage+FCDecode.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -215,9 +215,9 @@
 				01BA24371BD777A200E8A8E9 /* AVAudioPlayer+FCPlayFile.m in Sources */,
 				01608E991BCCA32E001C1901 /* FCQRCodeScanner.m in Sources */,
 				019DFE0B1BDF783A00C9855F /* NSString+FCQRCodeGenerator.m in Sources */,
-				01F8B3C91BDE1D2D00A4EBE5 /* UIImage+Avatar.m in Sources */,
+				01F8B3C91BDE1D2D00A4EBE5 /* UIImage+FCAvatar.m in Sources */,
 				01608E491BCCA241001C1901 /* main.m in Sources */,
-				01FF8ECA1BDF6EF300CE8CF0 /* UIImage+Decode.m in Sources */,
+				01FF8ECA1BDF6EF300CE8CF0 /* UIImage+FCDecode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

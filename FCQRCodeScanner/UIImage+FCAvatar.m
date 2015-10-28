@@ -6,9 +6,9 @@
 //  Copyright © 2015 Frank. All rights reserved.
 //
 
-#import "UIImage+Avatar.h"
+#import "UIImage+FCAvatar.h"
 
-@implementation UIImage (Avatar)
+@implementation UIImage (FCAvatar)
 
 - (UIImage *)imageWithAvatar:(UIImage *)avatar inCenterSize:(CGSize)size {
     UIGraphicsBeginImageContext(self.size);

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (Decode)
+@interface UIImage (FCDecode)
 
 /**
  *  使用CIDetector进行二维码的解码

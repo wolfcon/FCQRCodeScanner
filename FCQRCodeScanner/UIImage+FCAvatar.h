@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (Avatar)
+@interface UIImage (FCAvatar)
 
 /**
  *  将小图标添加到目标图片中间

@@ -7,7 +7,7 @@
 //
 
 #import "NSString+FCQRCodeGenerator.h"
-#import "UIImage+Avatar.h"
+#import "UIImage+FCAvatar.h"
 
 @implementation NSString (FCQRCodeGenerator)
 

@@ -60,7 +60,7 @@
                         <action selector="btnCancelTouchUpInside:" destination="-1" eventType="touchUpInside" id="dAk-4E-Kzz"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU6-kn-vOQ" userLabel="Btn Picture">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU6-kn-vOQ" userLabel="Btn Picture">
                     <rect key="frame" x="65" y="537" width="55" height="55"/>
                     <animations/>
                     <constraints>

@@ -6,9 +6,9 @@
 //  Copyright © 2015 Frank. All rights reserved.
 //
 
-#import "UIImage+Decode.h"
+#import "UIImage+FCDecode.h"
 
-@implementation UIImage (Decode)
+@implementation UIImage (FCDecode)
 
 - (NSString *)decodeWithQRCodeType {
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:[CIContext contextWithOptions:nil] options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];// iOS 8 以上, iPhone 5S以上(包括)设备才能正常识别

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "UIImage+Decode.h"
+#import "UIImage+FCDecode.h"
 #import "NSString+FCQRCodeGenerator.h"
 
 
