@@ -23,12 +23,16 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
 #### Scan
 
 
-
-- ``` objective-c
-  import "FCQRCodeScanner.h"
+- **Import header:**
+ 
+  ``` objective-c
+  #import "FCQRCodeScanner.h"
   ```
   
-- ``` objective-c
+
+- **Initialization:**
+
+  ``` objective-c
   FCQRCodeScanner *scanner = [FCQRCodeScanner scannerWithFrame:self.view.frame
                                   completion:^(NSString *codeString) {
   									// Do something when get a code
@@ -42,7 +46,7 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
                                   }];
   ```
   
-- Add the scan view
+- **Add the scan view:**
   
   ``` objective-c
   [self.view addSubview:scanner.view];
@@ -50,7 +54,7 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
   // present or transition
   ```
   
-- Close the scan view
+- **Close the scan view:**
   
   ``` objective-c
   [scanner close]; // this function will trigger dismissedAction block.
@@ -62,11 +66,15 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
 
 
 
-- ``` objective-c
-  import "NSString+FCQRCodeGenerator.h"
+- **Import header:**
+  
+  ``` objective-c
+  #import "NSString+FCQRCodeGenerator.h"
   ```
   
-- ​``` objective-c
+- **Generate:**
+
+   ``` objective-c
   // string is what you wanna generate from
   // image is QRCode Avatar that you wanna add
   UIImage *myQRCodeImage = [string qRImageWithSize:200]; 
@@ -79,16 +87,19 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
 #### Decode a QRImage from local storage.
 
 
-
-- ``` objective-c
+- **Import header:**
+  
+  ``` objective-c
   import "UIImage+Decode.h"
   ```
   
-- ​``` objective-c
+- **Decode:**
+  ```objective-c
   // image is what you wanna decode from local storage.
   NSString *codeString = [image decodeWithQRCodeType];
   // iPhone 5S above device support this function(include 5S)
   ```
+  
 
 
 
