@@ -25,10 +25,10 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
 
 
 - ``` objective-c
-    #import "FCQRCodeScanner.h"
+  import "FCQRCodeScanner.h"
   ```
   
-- Initialize
+- ​
   
   ``` objective-c
   FCQRCodeScanner *scanner = [FCQRCodeScanner scannerWithFrame:self.view.frame
@@ -65,7 +65,7 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
 
 
 - ``` objective-c
-   #import "NSString+FCQRCodeGenerator.h"
+  import "NSString+FCQRCodeGenerator.h"
   ```
   
 - ​
@@ -85,7 +85,7 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
 
 
 - ``` objective-c
-   #import "UIImage+Decode.h"
+  import "UIImage+Decode.h"
   ```
   
 - ​
