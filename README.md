@@ -28,7 +28,9 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
   #import "FCQRCodeScanner.h"
   ```
   
-- ``` objective-c
+- Initialize
+  
+  ``` objective-c
   FCQRCodeScanner *scanner = [FCQRCodeScanner scannerWithFrame:self.view.frame
                                   completion:^(NSString *codeString) {
   									// Do something when get a code
@@ -66,7 +68,9 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
   #import "NSString+FCQRCodeGenerator.h"
   ```
   
-- ``` objective-c
+- ​
+  
+  ``` objective-c
   // string is what you wanna generate from
   // image is QRCode Avatar that you wanna add
   UIImage *myQRCodeImage = [string qRImageWithSize:200]; 
@@ -84,7 +88,9 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
   #import "UIImage+Decode.h"
   ```
   
-- ``` objective-c
+- ​
+  
+  ``` objective-c
   // image is what you wanna decode from local storage.
   NSString *codeString = [image decodeWithQRCodeType];
   // iPhone 5S above device support this function(include 5S)
