@@ -39,6 +39,7 @@
 
 + (instancetype)scannerWithFrame:(CGRect)frame completion:(void (^)(NSString *))completion dismissedAction:(void (^)(void))dismissedAction {
     return [[FCQRCodeScanner alloc] initWithFrame:frame completion:completion dismissedAction:dismissedAction];
+    
 }
 
 - (instancetype)initWithFrame:(CGRect)frame completion:(void (^)(NSString *))completion dismissedAction:(void (^)(void))dismissedAction {

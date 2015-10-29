@@ -16,7 +16,7 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
   
 - <font color=#FF0000>(not available now)</font>*~~CocoaPod:~~* 
   
-  *~~add `pod 'FCQRCodeScanner', '~>0.1.0'`~~*
+  *~~add `pod 'FCQRCodeScanner', '~>1.0.0'`~~*
 
 ## Usage
 

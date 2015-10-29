@@ -11,14 +11,16 @@
 #import "FCMaskView.h"
 
 /**
- *  二维码扫描界面, 需要实现以下可选委托(如果要获取扫描值, 请至少实现getQRCodeWith其中之一)
+ *  二维码扫描界面(可以自定义按钮(背灯, 关闭等)和其他的xib内容)
  *
- *  关闭二维码扫描界面的委托函数
+ *  关闭二维码扫描界面调用
  *  - (void)close;
  *
- *  获取二维码扫描值的委托函数
- *  <1> - (void)getQRCodeWithString:(NSString *)aString;
- *  <2> - (void)getQRCodeWithAVMetadataMachineReadableCodeObject:(AVMetadataMachineReadableCodeObject *)aAVMetadataMachineReadableCodeObj;
+ *  扫描完成后继续开始可以调用
+ *  - (void)startReading;
+ *  
+ *  从实例化对象的completionBlock处可以获取到扫描的二维码值
+ *
  */
 @interface FCQRCodeScanner : UIViewController<AVCaptureMetadataOutputObjectsDelegate>{
 }
@@ -36,13 +38,13 @@
 @property (nonatomic, weak) IBOutlet UIButton *btnTorch;
 
 /**
- *  传递委托和遮罩界面尺寸并初始化
- *  initialize the class with delegate
+ *  Initialize the class with view frame, completion block and dismissedAction block.
  *
- *  @param aDelegate   委托
- *  @param aFrame       初始化遮罩界面用
+ *  @param frame           self.view.frame
+ *  @param completion      扫描到二维码后执行的block, 扫描后得到的code将作为block参数, 如果不关闭则可以执行[instance startReading];再次读取, 如果想关闭界面则调用[instance close];
+ *  @param dismissedAction (使用[instance close]方法后会执行该block)关闭扫描界面时执行的block, 一般随加载的方式而选用关闭的执行方法, 譬如, present对应dismiss, addSubview对应remove, 还可以使用transition
  *
- *  @return FCQRCodeSca∫nner实例化对象(instance)
+ *  @return FCQRCodeScanner实例化对象(instance)
  */
 + (instancetype)scannerWithFrame:(CGRect)frame completion:(void (^)(NSString *codeString))completion dismissedAction:(void (^)(void))dismissedAction NS_AVAILABLE_IOS(7_0);
 
