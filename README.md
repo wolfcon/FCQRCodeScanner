@@ -34,15 +34,15 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
 
   ``` objective-c
   FCQRCodeScanner *scanner = [FCQRCodeScanner scannerWithFrame:self.view.frame
-                                  completion:^(NSString *codeString) {
+                                  completion:^(NSString *codeString, FCQRCodeScanner *instance) {
   									// Do something when get a code
-                                    	// you can do continue scan by [scanner startReading];
+                                    	// you can do continue scan by [instance startReading];
                                     	// or you can use code and close scan view by [scanner close];
                                   }
-                                  dismissedAction:^{
+                                  dismissedAction:^(FCQRCodeScanner *instance) {
                                   	// Do something after scan view exit
                                     	// Close button clicked event will trigger this block
-                                    	// For example [scanner.view removeFromSuperview];
+                                    	// For example [instance.view removeFromSuperview];
                                   }];
   ```
   
