@@ -72,15 +72,12 @@
  */
 - (BOOL)camaraAllowed{
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    return (AVAuthorizationStatusAuthorized == status);
+    return (AVAuthorizationStatusDenied != status);
 }
 
 - (BOOL)loadCaptureSession{
     NSError *error;
     AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
-    //根据拥有授权动态隐藏信息
-    lblWarning.hidden = [self camaraAllowed] ? YES : NO;
     
     AVCaptureDeviceInput *captureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
     
@@ -123,6 +120,9 @@
     
     [self startReading];
     [captureSession startRunning];
+    
+    //根据拥有授权动态隐藏信息
+    lblWarning.hidden = [self camaraAllowed] ? YES : NO;
     
     return YES;
 }
