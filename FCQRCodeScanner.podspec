@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.description = 'Simple QRcode Scanner(Apple API) & Generator'
   s.platform    = :ios
 
-  s.source_files = 'FCQRCodeScanner/*.{h,m,xib}'
-  s.resources = "FCQRCodeScanner/*.{png,mp3}"
+  s.source_files = 'FCQRCodeScanner/*.{h,m}'
+  s.resources = "FCQRCodeScanner/*.{png,mp3,xib}"
   #s.clean_path   = 'Demo'
 
   s.requires_arc = true

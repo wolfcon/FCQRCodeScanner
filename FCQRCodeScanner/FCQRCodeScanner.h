@@ -46,7 +46,7 @@
  *
  *  @return FCQRCodeScanner实例化对象(instance)
  */
-+ (instancetype)scannerWithFrame:(CGRect)frame completion:(void (^)(NSString *codeString))completion dismissedAction:(void (^)(void))dismissedAction NS_AVAILABLE_IOS(7_0);
++ (instancetype)scannerWithFrame:(CGRect)frame completion:(void (^)(NSString *codeString, FCQRCodeScanner *instance))completion dismissedAction:(void (^)(FCQRCodeScanner *instance))dismissedAction NS_AVAILABLE_IOS(7_0);
 
 /** 开始二维码扫描读取 begin to read */
 - (void)startReading;

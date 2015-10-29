@@ -52,20 +52,20 @@
 - (IBAction)btnScanTouchUpInside:(id)sender{
     __weak typeof(self) weakSelf = self;
     scanner = [FCQRCodeScanner scannerWithFrame:self.view.frame
-                                     completion:^(NSString *codeString) {
+                                     completion:^(NSString *codeString, FCQRCodeScanner *instance) {
                                          UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"QRCode is: " message:codeString preferredStyle:UIAlertControllerStyleAlert];
                                          
+                                         __weak FCQRCodeScanner *weakInstance = instance;
                                          UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-                                             [scanner startReading];
+                                             [weakInstance startReading];
                                          }];
                                          
                                          [alert addAction:action];
                                          
                                          [weakSelf presentViewController:alert animated:YES completion:nil];
-                                     }
-                                dismissedAction:^{
-                                    [scanner.view removeFromSuperview];
-                                }];
+                                     } dismissedAction:^(FCQRCodeScanner *instance) {
+                                         [instance.view removeFromSuperview];
+                                     }];
     
     [self.view addSubview:scanner.view];
 }

@@ -26,9 +26,9 @@
     IBOutlet UILabel *lblWarning;
 }
 
-@property (copy) void (^completion)(NSString *codeString);
+@property (copy) void (^completion)(NSString *codeString, FCQRCodeScanner *instance);
 
-@property (copy) void (^dismissedAction)(void);
+@property (copy) void (^dismissedAction)(FCQRCodeScanner *instance);
 
 @end
 
@@ -37,12 +37,11 @@
 @implementation FCQRCodeScanner
 
 
-+ (instancetype)scannerWithFrame:(CGRect)frame completion:(void (^)(NSString *))completion dismissedAction:(void (^)(void))dismissedAction {
++ (instancetype)scannerWithFrame:(CGRect)frame completion:(void (^)(NSString *, FCQRCodeScanner *))completion dismissedAction:(void (^)(FCQRCodeScanner *))dismissedAction {
     return [[FCQRCodeScanner alloc] initWithFrame:frame completion:completion dismissedAction:dismissedAction];
-    
 }
 
-- (instancetype)initWithFrame:(CGRect)frame completion:(void (^)(NSString *))completion dismissedAction:(void (^)(void))dismissedAction {
+- (instancetype)initWithFrame:(CGRect)frame completion:(void (^)(NSString *, FCQRCodeScanner *))completion dismissedAction:(void (^)(FCQRCodeScanner *))dismissedAction {
     self = [super init];
     if (self) {
         // 闪光灯默认不打开
@@ -196,7 +195,7 @@
     [self stopReading];
     [captureSession stopRunning];
     
-    _dismissedAction();
+    _dismissedAction(self);
 }
 
 /**
@@ -258,7 +257,7 @@
             [self stopReading];
             [AVAudioPlayer playBeepSound];
             
-            _completion(metadataObj.stringValue);
+            _completion(metadataObj.stringValue, self);
         }
     }
 }
