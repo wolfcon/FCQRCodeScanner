@@ -37,7 +37,7 @@ iOS 8.0 for local picture decode.<font color=#990000>*[And device limitation: iP
                                   completion:^(NSString *codeString, FCQRCodeScanner *instance) {
   									// Do something when get a code
                                     	// you can do continue scan by [instance startReading];
-                                    	// or you can use code and close scan view by [scanner close];
+                                    	// or you can use code and close scan view by [instance close];
                                   }
                                   dismissedAction:^(FCQRCodeScanner *instance) {
                                   	// Do something after scan view exit
